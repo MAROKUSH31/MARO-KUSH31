@@ -1,1 +1,164 @@
+<!DOCTYPE html>
+<html lang="fr">
 
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Panneau d'administration</title>
+
+<link rel="stylesheet" href="admin.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<header class="admin-header">
+
+<div class="logo">
+
+<h1>MARO KUSH 31</h1>
+
+<p>Administration</p>
+
+</div>
+
+<button id="logoutBtn">
+
+Déconnexion
+
+</button>
+
+</header>
+
+<div class="admin-layout">
+
+<aside class="sidebar">
+
+<ul>
+
+<li class="active">🏠 Tableau de bord</li>
+
+<li>📦 Produits</li>
+
+<li>🎥 Vidéos</li>
+
+<li>🖼️ Images</li>
+
+<li>📢 Annonces</li>
+
+<li>⚙️ Paramètres</li>
+
+</ul>
+
+</aside>
+
+<main class="content">
+
+<h2>Bienvenue</h2>
+
+<p>
+
+Depuis cette interface, vous pourrez gérer le contenu de votre site.
+
+</p>
+
+<div class="cards">
+
+<div class="dashboard-card">
+
+<h3>📦 Produits</h3>
+
+<p id="productCount">
+
+3 produits
+
+</p>
+
+</div>
+
+<div class="dashboard-card">
+
+<h3>🎥 Vidéos</h3>
+
+<p id="videoCount">
+
+2 vidéos
+
+</p>
+
+</div>
+
+<div class="dashboard-card">
+
+<h3>🖼️ Images</h3>
+
+<p id="imageCount">
+
+1 image
+
+</p>
+
+</div>
+
+<div class="dashboard-card">
+
+<h3>📢 Annonces</h3>
+
+<p>
+
+1 annonce active
+
+</p>
+
+</div>
+
+</div>
+
+<section class="quick-actions">
+
+<h2>Actions rapides</h2>
+
+<div class="actions">
+
+<button id="addProduct">
+
+➕ Ajouter un produit
+
+</button>
+
+<button id="addVideo">
+
+🎥 Ajouter une vidéo
+
+</button>
+
+<button id="addImage">
+
+🖼️ Ajouter une image
+
+</button>
+
+<button id="saveChanges">
+
+💾 Enregistrer
+
+</button>
+
+</div>
+
+</section>
+
+</main>
+
+</div>
+
+<script src="admin.js"></script>
+
+</body>
+
+</html>
