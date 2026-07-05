@@ -1,72 +1,67 @@
+/* ==========================================================
+   MARO KUSH 31 - SCRIPT 2.0
+   Partie 1/6
+========================================================== */
+
 document.addEventListener("DOMContentLoaded", () => {
 
-    /* ===========================
-       BOUTONS
-    =========================== */
+    "use strict";
 
-    document.querySelectorAll("button").forEach((button) => {
+    /* ==========================================================
+       RACCOURCIS
+    ========================================================== */
 
-        button.addEventListener("click", () => {
+    const $ = (selector) => document.querySelector(selector);
+    const $$ = (selector) => document.querySelectorAll(selector);
 
-            const text = button.textContent;
+    /* ==========================================================
+       ÉLÉMENTS
+    ========================================================== */
 
-            if (text.includes("WhatsApp")) {
-                window.open("https://wa.me/33612345678", "_blank");
-            }
+    const loader = $("#loader");
 
-            else if (text.includes("Telegram")) {
-                window.open("https://t.me/SAV_MK31", "_blank");
-            }
+    const menuBtn = $("#menuBtn");
+    const sideMenu = $("#sideMenu");
 
-            else if (text.includes("Acheter")) {
-                alert("🛒 Produit ajouté au panier");
-            }
+    const timer = $("#timer");
 
-        });
+    const accessModal = $("#accessModal");
+    const enterButton = $("#enterButton");
+
+    /* ==========================================================
+       LOADER
+    ========================================================== */
+
+    window.addEventListener("load", () => {
+
+        if (!loader) return;
+
+        setTimeout(() => {
+
+            loader.classList.add("loader-hidden");
+
+            setTimeout(() => {
+
+                loader.remove();
+
+            }, 700);
+
+        }, 1400);
 
     });
 
-
-    /* ===========================
-       COMPTE À REBOURS
-    =========================== */
-
-    const timer = document.getElementById("timer");
-
-    function updateCountdown() {
-
-        if (!timer) return;
-
-        const now = new Date();
-        const tomorrow = new Date();
-
-        tomorrow.setHours(24, 0, 0, 0);
-
-        const diff = tomorrow - now;
-
-        const h = Math.floor(diff / 1000 / 60 / 60);
-        const m = Math.floor((diff / 1000 / 60) % 60);
-        const s = Math.floor((diff / 1000) % 60);
-
-        timer.innerHTML = `⏳ Nouveau code dans : ${h}h ${m}m ${s}s`;
-
-    }
-
-    updateCountdown();
-    setInterval(updateCountdown, 1000);
-
-
-    /* ===========================
+    /* ==========================================================
        MENU LATÉRAL
-    =========================== */
-
-    const menuBtn = document.getElementById("menuBtn");
-    const sideMenu = document.getElementById("sideMenu");
+    ========================================================== */
 
     if (menuBtn && sideMenu) {
 
-        menuBtn.addEventListener("click", () => {
+        menuBtn.addEventListener("click", (e) => {
+
+            e.stopPropagation();
+
             sideMenu.classList.toggle("open");
+
         });
 
         document.addEventListener("click", (e) => {
@@ -75,112 +70,364 @@ document.addEventListener("DOMContentLoaded", () => {
                 !sideMenu.contains(e.target) &&
                 !menuBtn.contains(e.target)
             ) {
+
                 sideMenu.classList.remove("open");
+
             }
 
         });
 
     }
 
+    /* ==========================================================
+       DÉFILEMENT FLUIDE
+    ========================================================== */
 
-    /* ===========================
-       BOUTONS CATÉGORIES
-    =========================== */
+    $$('a[href^="#"]').forEach((link) => {
 
-    document.querySelectorAll(".btn").forEach((btn) => {
+        link.addEventListener("click", (e) => {
 
-        btn.addEventListener("click", () => {
-            alert("🚧 Cette catégorie sera bientôt connectée à la boutique.");
+            const target = document.querySelector(
+                link.getAttribute("href")
+            );
+
+            if (!target) return;
+
+            e.preventDefault();
+
+            target.scrollIntoView({
+
+                behavior: "smooth"
+
+            });
+
+            if (sideMenu) {
+
+                sideMenu.classList.remove("open");
+
+            }
+
         });
 
     });
 
+    /* ==========================================================
+       OUVERTURE DE L'ÉCRAN D'ACCÈS
+    ========================================================== */
 
-    /* ===========================
-       VIDÉOS
-    =========================== */
+    if (enterButton && accessModal) {
 
-    document.querySelectorAll(".videoBtn").forEach((button) => {
+        enterButton.addEventListener("click", () => {
 
-        button.addEventListener("click", () => {
-            alert("🎥 La vidéo de démonstration sera disponible ici.");
+            accessModal.style.display = "flex";
+
         });
 
-    });
+    }
 
+    /* ==========================================================
+       COMPTE À REBOURS
+    ========================================================== */
 
-    /* ===========================
-       APPARITION AU SCROLL
-    =========================== */
+    function updateCountdown() {
+
+        if (!timer) return;
+
+        const now = new Date();
+
+        const tomorrow = new Date();
+
+        tomorrow.setHours(24, 0, 0, 0);
+
+        const diff = tomorrow - now;
+
+        const hours = Math.floor(diff / 1000 / 60 / 60);
+
+        const minutes = Math.floor(
+            (diff / 1000 / 60) % 60
+        );
+
+        const seconds = Math.floor(
+            (diff / 1000) % 60
+        );
+
+        timer.innerHTML =
+            `⏳ Nouveau menu dans : <strong>${hours}h ${minutes}m ${seconds}s</strong>`;
+
+    }
+
+    updateCountdown();
+
+    setInterval(updateCountdown, 1000);
+
+    console.log("✅ Script 2.0 - Partie 1 chargée");
+
+});
+    /* ==========================================================
+       ANIMATIONS AU SCROLL
+    ========================================================== */
 
     const observer = new IntersectionObserver((entries) => {
 
         entries.forEach((entry) => {
 
             if (entry.isIntersecting) {
+
                 entry.target.classList.add("show");
+
             }
 
         });
 
     }, {
+
         threshold: 0.15
+
     });
 
     document.querySelectorAll(
-        ".card, .about-card, .contact, .countdown"
+
+        ".card, .about-card, .countdown, .contact"
+
     ).forEach((element) => {
 
         element.classList.add("fade");
+
         observer.observe(element);
 
     });
 
 
-    /* ===========================
-       FICHE PRODUIT
-    =========================== */
+    /* ==========================================================
+       FENÊTRE PRODUIT
+    ========================================================== */
 
-    const productModal = document.getElementById("productModal");
-    const closeProduct = document.getElementById("closeProduct");
+    const productModal = $("#productModal");
+    const closeProduct = $("#closeProduct");
 
     if (productModal && closeProduct) {
 
         document.querySelectorAll(".shopBtn").forEach((button) => {
 
             button.addEventListener("click", () => {
+
+                productModal.classList.add("active");
                 productModal.style.display = "flex";
+
             });
 
         });
 
         closeProduct.addEventListener("click", () => {
+
+            productModal.classList.remove("active");
             productModal.style.display = "none";
+
         });
 
     }
 
-});
+
+    /* ==========================================================
+       LECTEUR VIDÉO
+    ========================================================== */
+
+    const videoModal = $("#videoModal");
+    const closeVideo = $("#closeVideo");
+    const productVideo = $("#productVideo");
+
+    if (videoModal && productVideo) {
+
+        document.querySelectorAll(".videoBtn").forEach((button) => {
+
+            button.addEventListener("click", () => {
+
+                const video = button.dataset.video;
+
+                if (video) {
+
+                    productVideo.src = video;
+                    productVideo.load();
+
+                }
+
+                videoModal.style.display = "flex";
+
+            });
+
+        });
+
+    }
+
+    if (closeVideo) {
+
+        closeVideo.addEventListener("click", () => {
+
+            productVideo.pause();
+            productVideo.currentTime = 0;
+
+            videoModal.style.display = "none";
+
+        });
+
+    }
 
 
-/* ===========================
-   LOADER
-=========================== */
+    /* ==========================================================
+       FERMETURE AU CLIC EXTÉRIEUR
+    ========================================================== */
 
-window.addEventListener("load", () => {
+    window.addEventListener("click", (e) => {
 
-    const loader = document.getElementById("loader");
+        if (e.target === productModal) {
 
-    if (!loader) return;
+            productModal.style.display = "none";
 
-    setTimeout(() => {
+        }
 
-        loader.classList.add("loader-hidden");
+        if (e.target === videoModal) {
 
-        setTimeout(() => {
-            loader.remove();
-        }, 700);
+            productVideo.pause();
+            productVideo.currentTime = 0;
 
-    }, 2200);
+            videoModal.style.display = "none";
 
-});
+        }
+
+    });
+
+
+    /* ==========================================================
+       TOUCHE ÉCHAP
+    ========================================================== */
+
+    document.addEventListener("keydown", (e) => {
+
+        if (e.key !== "Escape") return;
+
+        if (productModal) {
+
+            productModal.style.display = "none";
+
+        }
+
+        if (videoModal) {
+
+            productVideo.pause();
+            productVideo.currentTime = 0;
+
+            videoModal.style.display = "none";
+
+        }
+
+        if (sideMenu) {
+
+            sideMenu.classList.remove("open");
+
+        }
+
+    });
+        /* ==========================================================
+       BOUTON RETOUR EN HAUT
+    ========================================================== */
+
+    const backToTop = $("#backToTop");
+
+    if (backToTop) {
+
+        window.addEventListener("scroll", () => {
+
+            if (window.scrollY > 400) {
+
+                backToTop.classList.add("show");
+
+            } else {
+
+                backToTop.classList.remove("show");
+
+            }
+
+        });
+
+        backToTop.addEventListener("click", () => {
+
+            window.scrollTo({
+
+                top: 0,
+                behavior: "smooth"
+
+            });
+
+        });
+
+    }
+
+    /* ==========================================================
+       LIENS WHATSAPP / TELEGRAM
+    ========================================================== */
+
+    document.querySelectorAll(".whatsapp").forEach((btn) => {
+
+        btn.addEventListener("click", () => {
+
+            window.open(
+                "https://wa.me/33756936228",
+                "_blank"
+            );
+
+        });
+
+    });
+
+    document.querySelectorAll(".telegram").forEach((btn) => {
+
+        btn.addEventListener("click", () => {
+
+            window.open(
+                "https://t.me/SAV_MK31",
+                "_blank"
+            );
+
+        });
+
+    });
+
+    /* ==========================================================
+       OPTIMISATION DES VIDÉOS
+    ========================================================== */
+
+    document.querySelectorAll("video").forEach((video) => {
+
+        video.preload = "metadata";
+
+        video.setAttribute("playsinline", "");
+        video.setAttribute("controlsList", "nodownload");
+
+    });
+
+    /* ==========================================================
+       ANIMATION DES CARTES
+    ========================================================== */
+
+    document.querySelectorAll(".card").forEach((card) => {
+
+        card.addEventListener("mouseenter", () => {
+
+            card.classList.add("card-hover");
+
+        });
+
+        card.addEventListener("mouseleave", () => {
+
+            card.classList.remove("card-hover");
+
+        });
+
+    });
+
+    /* ==========================================================
+       MESSAGE DE BIENVENUE
+    ========================================================== */
+
+    console.log("🚀 Bienvenue sur MARO KUSH 31");
+    
