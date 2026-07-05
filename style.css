@@ -1102,3 +1102,24 @@ border:1px solid #8d2fff;
 transform:scale(1.04);
 
 }
+/* ===========================
+   ANIMATIONS AU SCROLL
+=========================== */
+
+.fade{
+
+opacity:0;
+
+transform:translateY(40px);
+
+transition:.8s ease;
+
+}
+
+.fade.show{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
