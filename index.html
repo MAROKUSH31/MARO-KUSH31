@@ -2,25 +2,89 @@
 <html lang="fr">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Club Privé</title>
 
-<title>MARO KUSH 31 | Boutique Premium</title>
+    <meta name="description" content="Espace réservé aux membres">
 
-<meta name="description" content="Boutique Premium CBD - MARO KUSH 31">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+
+<div class="background"></div>
+
+<header class="topbar">
+
+    <div class="logo-zone">
+        <h1>CLUB PRIVÉ</h1>
+        <span>Espace réservé aux membres</span>
+    </div>
+
+</header>
+
+<main>
+
+<section class="hero">
+
+    <h2>Bienvenue</h2>
+
+    <p>
+        Cette plateforme est réservée aux membres du club.
+    </p>
+
+    <button id="enterButton">
+        🔒 Entrer
+    </button>
+
+</section>
+
+<section class="countdown">
+
+    <h3>Le code change automatiquement</h3>
+
+    <div id="timer">
+        24:00:00
+    </div>
+
+</section>
+
+</main>
+
+<div id="accessModal" class="access-modal">
+
+    <div class="access-box">
+
+        <h2>Connexion</h2>
+
+        <p>Entrez le code du jour.</p>
+
+        <input
+            type="password"
+            id="accessCode"
+            placeholder="Code d'accès">
+
+        <button id="accessButton">
+            Se connecter
+        </button>
+
+        <p id="errorMessage"></p>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
 
 <!-- LOADER -->
 
