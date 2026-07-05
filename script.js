@@ -74,3 +74,12 @@ alert("🚧 Cette catégorie sera bientôt connectée à la boutique.");
 });
 
 });
+document.querySelectorAll(".videoBtn").forEach(button=>{
+
+button.addEventListener("click",()=>{
+
+alert("🎥 La vidéo de démonstration sera disponible ici.");
+
+});
+
+});
