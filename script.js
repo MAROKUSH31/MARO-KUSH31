@@ -65,3 +65,12 @@ menuBtn.addEventListener("click", () => {
 sideMenu.classList.toggle("open");
 
 });
+document.querySelectorAll(".btn").forEach((btn)=>{
+
+btn.addEventListener("click",()=>{
+
+alert("🚧 Cette catégorie sera bientôt connectée à la boutique.");
+
+});
+
+});
