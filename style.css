@@ -2,125 +2,114 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Arial,Helvetica,sans-serif;
 }
 
 body{
-
-background:linear-gradient(180deg,#050505,#120019,#1d0030);
-
+font-family:Arial, Helvetica, sans-serif;
+background:linear-gradient(to bottom,#050505,#17001f,#050505);
 color:white;
-
-min-height:100vh;
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-text-align:center;
-
 }
 
-.hero{
-
-width:90%;
-
-max-width:450px;
-
-padding:30px;
-
+header{
+text-align:center;
+padding:40px 20px;
 }
 
 .logo{
-
 width:180px;
-
-margin-bottom:20px;
-
-filter:drop-shadow(0 0 25px #a200ff);
-
+border-radius:20px;
+box-shadow:0 0 35px #8a2be2;
 }
 
 h1{
-
-font-size:48px;
-
-color:#d76bff;
-
-text-shadow:0 0 20px #7d00ff;
-
-margin-bottom:15px;
-
+margin-top:20px;
+font-size:42px;
+color:#d86cff;
+text-shadow:0 0 20px #a020f0;
 }
 
-p{
-
-font-size:20px;
-
-color:#ddd;
-
-margin-bottom:35px;
-
-line-height:30px;
-
+.slogan{
+margin-top:15px;
+font-size:18px;
+color:#dddddd;
 }
 
-button{
-
-width:100%;
-
-padding:18px;
-
-font-size:22px;
-
-border:none;
-
-border-radius:16px;
-
-background:#8a2be2;
-
-color:white;
-
-font-weight:bold;
-
-box-shadow:0 0 25px #8a2be2;
-
-margin-bottom:25px;
-
-}
-
-button:active{
-
-transform:scale(.96);
-
-}
-
-.contact{
-
+nav{
 display:flex;
-
-flex-direction:column;
-
-gap:15px;
-
+justify-content:center;
+gap:10px;
+flex-wrap:wrap;
+padding:20px;
 }
 
-.contact a{
-
-text-decoration:none;
-
-background:#1b1b1b;
-
-padding:15px;
-
-border-radius:14px;
-
+nav button{
+background:#8a2be2;
 color:white;
-
+border:none;
+padding:12px 20px;
+border-radius:30px;
 font-weight:bold;
+}
 
+.titre{
+text-align:center;
+margin:30px 0;
+}
+
+.produits{
+display:flex;
+flex-direction:column;
+gap:25px;
+padding:20px;
+}
+
+.carte{
+background:#141414;
 border:2px solid #8a2be2;
+border-radius:20px;
+padding:20px;
+text-align:center;
+box-shadow:0 0 20px rgba(138,43,226,.4);
+}
 
+.carte img{
+width:100%;
+border-radius:15px;
+}
+
+.carte h3{
+margin-top:15px;
+font-size:24px;
+}
+
+.carte p{
+margin:10px 0;
+font-size:22px;
+font-weight:bold;
+color:#b86cff;
+}
+
+.carte button{
+background:#8a2be2;
+color:white;
+border:none;
+padding:14px 25px;
+border-radius:30px;
+font-size:18px;
+font-weight:bold;
+}
+
+footer{
+margin-top:40px;
+padding:30px;
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+}
+
+footer a{
+color:white;
+text-decoration:none;
+font-size:18px;
 }
