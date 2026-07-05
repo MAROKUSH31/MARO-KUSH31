@@ -1,175 +1,186 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-const boutons = document.querySelectorAll("button");
+    /* ===========================
+       BOUTONS
+    =========================== */
 
-boutons.forEach(bouton => {
+    document.querySelectorAll("button").forEach((button) => {
 
-    bouton.addEventListener("click", () => {
+        button.addEventListener("click", () => {
 
-        if (bouton.textContent.includes("WhatsApp")) {
-            window.open("https://wa.me/33612345678","_blank");
-        }
+            const text = button.textContent;
 
-        else if (bouton.textContent.includes("Telegram")) {
-            window.open("https://t.me/SAV_MK31","_blank");
-        }
+            if (text.includes("WhatsApp")) {
+                window.open("https://wa.me/33612345678", "_blank");
+            }
 
-        else if (bouton.textContent.includes("Acheter")) {
-            alert("🛒 Produit ajouté au panier");
-        }
+            else if (text.includes("Telegram")) {
+                window.open("https://t.me/SAV_MK31", "_blank");
+            }
+
+            else if (text.includes("Acheter")) {
+                alert("🛒 Produit ajouté au panier");
+            }
+
+        });
 
     });
 
-});
 
-// ===== COMPTE À REBOURS =====
+    /* ===========================
+       COMPTE À REBOURS
+    =========================== */
 
-const timer = document.getElementById("timer");
+    const timer = document.getElementById("timer");
 
-function updateCountdown(){
+    function updateCountdown() {
 
-    if(!timer) return;
+        if (!timer) return;
 
-    const now = new Date();
+        const now = new Date();
+        const tomorrow = new Date();
 
-    const tomorrow = new Date();
+        tomorrow.setHours(24, 0, 0, 0);
 
-    tomorrow.setHours(24,0,0,0);
+        const diff = tomorrow - now;
 
-    const diff = tomorrow - now;
+        const h = Math.floor(diff / 1000 / 60 / 60);
+        const m = Math.floor((diff / 1000 / 60) % 60);
+        const s = Math.floor((diff / 1000) % 60);
 
-    const h = Math.floor(diff / 1000 / 60 / 60);
+        timer.innerHTML = `⏳ Nouveau code dans : ${h}h ${m}m ${s}s`;
 
-    const m = Math.floor((diff / 1000 / 60) % 60);
+    }
 
-    const s = Math.floor((diff / 1000) % 60);
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
 
-    timer.innerHTML =
-    "⏳ Nouveau code dans : "
-    + h + "h "
-    + m + "m "
-    + s + "s";
 
-}
+    /* ===========================
+       MENU LATÉRAL
+    =========================== */
 
-setInterval(updateCountdown,1000);
+    const menuBtn = document.getElementById("menuBtn");
+    const sideMenu = document.getElementById("sideMenu");
 
-updateCountdown();
+    if (menuBtn && sideMenu) {
 
-});
+        menuBtn.addEventListener("click", () => {
+            sideMenu.classList.toggle("open");
+        });
 
-document.querySelectorAll(".btn").forEach((btn)=>{
+        document.addEventListener("click", (e) => {
 
-btn.addEventListener("click",()=>{
+            if (
+                !sideMenu.contains(e.target) &&
+                !menuBtn.contains(e.target)
+            ) {
+                sideMenu.classList.remove("open");
+            }
 
-alert("🚧 Cette catégorie sera bientôt connectée à la boutique.");
+        });
 
-});
+    }
 
-});
-document.querySelectorAll(".videoBtn").forEach(button=>{
 
-button.addEventListener("click",()=>{
+    /* ===========================
+       BOUTONS CATÉGORIES
+    =========================== */
 
-alert("🎥 La vidéo de démonstration sera disponible ici.");
+    document.querySelectorAll(".btn").forEach((btn) => {
 
-});
+        btn.addEventListener("click", () => {
+            alert("🚧 Cette catégorie sera bientôt connectée à la boutique.");
+        });
 
-});
-/* ===========================
-   MENU LATÉRAL
-=========================== */
+    });
 
-const menuBtn = document.getElementById("menuBtn");
-const sideMenu = document.getElementById("sideMenu");
 
-menuBtn.addEventListener("click", () => {
+    /* ===========================
+       VIDÉOS
+    =========================== */
 
-    sideMenu.classList.toggle("open");
+    document.querySelectorAll(".videoBtn").forEach((button) => {
 
-});
+        button.addEventListener("click", () => {
+            alert("🎥 La vidéo de démonstration sera disponible ici.");
+        });
 
-document.addEventListener("click", (e) => {
+    });
 
-    if (
-        !sideMenu.contains(e.target) &&
-        !menuBtn.contains(e.target)
-    ) {
 
-        sideMenu.classList.remove("open");
+    /* ===========================
+       APPARITION AU SCROLL
+    =========================== */
+
+    const observer = new IntersectionObserver((entries) => {
+
+        entries.forEach((entry) => {
+
+            if (entry.isIntersecting) {
+                entry.target.classList.add("show");
+            }
+
+        });
+
+    }, {
+        threshold: 0.15
+    });
+
+    document.querySelectorAll(
+        ".card, .about-card, .contact, .countdown"
+    ).forEach((element) => {
+
+        element.classList.add("fade");
+        observer.observe(element);
+
+    });
+
+
+    /* ===========================
+       FICHE PRODUIT
+    =========================== */
+
+    const productModal = document.getElementById("productModal");
+    const closeProduct = document.getElementById("closeProduct");
+
+    if (productModal && closeProduct) {
+
+        document.querySelectorAll(".shopBtn").forEach((button) => {
+
+            button.addEventListener("click", () => {
+                productModal.style.display = "flex";
+            });
+
+        });
+
+        closeProduct.addEventListener("click", () => {
+            productModal.style.display = "none";
+        });
 
     }
 
 });
-/* ===========================
-   APPARITION AU SCROLL
-=========================== */
 
-const observer = new IntersectionObserver((entries)=>{
 
-entries.forEach(entry=>{
-
-if(entry.isIntersecting){
-
-entry.target.classList.add("show");
-
-}
-
-});
-
-},{
-threshold:.15
-});
-
-document.querySelectorAll(
-".card,.about-card,.contact,.countdown"
-).forEach(el=>{
-
-el.classList.add("fade");
-
-observer.observe(el);
-
-});
 /* ===========================
    LOADER
 =========================== */
 
-window.addEventListener("load",()=>{
+window.addEventListener("load", () => {
 
-const loader=document.getElementById("loader");
+    const loader = document.getElementById("loader");
 
-setTimeout(()=>{
+    if (!loader) return;
 
-loader.classList.add("loader-hidden");
+    setTimeout(() => {
 
-setTimeout(()=>{
+        loader.classList.add("loader-hidden");
 
-loader.remove();
+        setTimeout(() => {
+            loader.remove();
+        }, 700);
 
-},700);
-
-},2200);
-
-});
-/* ===========================
-   FICHE PRODUIT
-=========================== */
-
-const productModal = document.getElementById("productModal");
-const closeProduct = document.getElementById("closeProduct");
-
-document.querySelectorAll(".shopBtn").forEach(button=>{
-
-button.addEventListener("click",()=>{
-
-productModal.style.display="flex";
-
-});
-
-});
-
-closeProduct.addEventListener("click",()=>{
-
-productModal.style.display="none";
+    }, 2200);
 
 });
