@@ -1123,3 +1123,116 @@ opacity:1;
 transform:translateY(0);
 
 }
+/* ===========================
+   ÉCRAN DE CHARGEMENT
+=========================== */
+
+#loader{
+
+position:fixed;
+
+top:0;
+
+left:0;
+
+width:100%;
+
+height:100%;
+
+background:#050505;
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:center;
+
+align-items:center;
+
+z-index:99999;
+
+transition:opacity .6s ease;
+
+}
+
+.loader-logo{
+
+width:140px;
+
+height:140px;
+
+border-radius:28px;
+
+animation:loaderFloat 2s ease-in-out infinite;
+
+box-shadow:0 0 35px #8d2fff;
+
+}
+
+@keyframes loaderFloat{
+
+0%{transform:translateY(0);}
+
+50%{transform:translateY(-12px);}
+
+100%{transform:translateY(0);}
+
+}
+
+#loader h2{
+
+margin-top:25px;
+
+font-size:34px;
+
+}
+
+#loader p{
+
+margin:15px 0;
+
+color:#c8c8c8;
+
+}
+
+.loader-bar{
+
+width:260px;
+
+height:8px;
+
+background:#222;
+
+border-radius:50px;
+
+overflow:hidden;
+
+}
+
+.loader-progress{
+
+height:100%;
+
+width:0;
+
+background:linear-gradient(90deg,#7b2cff,#d18fff);
+
+animation:loading 2.2s forwards;
+
+}
+
+@keyframes loading{
+
+from{width:0;}
+
+to{width:100%;}
+
+}
+
+.loader-hidden{
+
+opacity:0;
+
+pointer-events:none;
+
+}
