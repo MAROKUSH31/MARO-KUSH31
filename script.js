@@ -158,3 +158,25 @@ loader.remove();
 },2200);
 
 });
+/* ===========================
+   FICHE PRODUIT
+=========================== */
+
+const productModal = document.getElementById("productModal");
+const closeProduct = document.getElementById("closeProduct");
+
+document.querySelectorAll(".shopBtn").forEach(button=>{
+
+button.addEventListener("click",()=>{
+
+productModal.style.display="flex";
+
+});
+
+});
+
+closeProduct.addEventListener("click",()=>{
+
+productModal.style.display="none";
+
+});
