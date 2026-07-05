@@ -57,14 +57,7 @@ setInterval(updateCountdown,1000);
 updateCountdown();
 
 });
-const menuBtn = document.getElementById("menuBtn");
-const sideMenu = document.getElementById("sideMenu");
 
-menuBtn.addEventListener("click", () => {
-
-sideMenu.classList.toggle("open");
-
-});
 document.querySelectorAll(".btn").forEach((btn)=>{
 
 btn.addEventListener("click",()=>{
