@@ -1,22 +1,40 @@
-/* ===================================
-   MARO KUSH 31 PREMIUM V2
-=================================== */
+/* ==========================================================
+   MARO KUSH 31
+   STYLE.CSS 2.0
+   Partie 1
+========================================================== */
 
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
+scroll-behavior:smooth;
 }
 
-html{
-scroll-behavior:smooth;
+:root{
+
+--gold:#FFD54A;
+--gold2:#ffb700;
+--black:#0f1115;
+--black2:#181b22;
+--white:#ffffff;
+--grey:#b9b9b9;
+
+--green:#25D366;
+--telegram:#27A5E7;
+
+--radius:20px;
+
+--shadow:
+0 15px 40px rgba(0,0,0,.35);
+
 }
 
 body{
 
-font-family:'Poppins',sans-serif;
+font-family:"Poppins",sans-serif;
 
-background:#050505;
+background:#0f1115;
 
 color:white;
 
@@ -24,208 +42,118 @@ overflow-x:hidden;
 
 }
 
-/* ========= FOND ========= */
+/* ===========================
+BACKGROUND
+=========================== */
 
 .background{
 
 position:fixed;
 
-top:0;
+inset:0;
 
-left:0;
-
-width:100%;
-
-height:100%;
+z-index:-2;
 
 background:
 
-radial-gradient(circle at top,#9b3dff40,transparent 35%),
+radial-gradient(circle at top,
 
-radial-gradient(circle at bottom,#6200ff25,transparent 45%),
+rgba(255,215,0,.08),
 
-#050505;
+transparent 60%),
 
-z-index:-1;
+linear-gradient(
 
-}
+180deg,
 
-/* ========= BARRE DU HAUT ========= */
+#141414,
 
-.topbar{
+#090909
 
-position:fixed;
-
-top:0;
-
-left:0;
-
-width:100%;
-
-height:75px;
-
-padding:15px 20px;
-
-display:flex;
-
-justify-content:space-between;
-
-align-items:center;
-
-background:rgba(5,5,5,.75);
-
-backdrop-filter:blur(15px);
-
-border-bottom:1px solid rgba(155,61,255,.20);
-
-z-index:999;
+);
 
 }
 
-.logo-zone{
+/* ===========================
+SCROLLBAR
+=========================== */
 
-display:flex;
+::-webkit-scrollbar{
 
-align-items:center;
-
-gap:15px;
-
-}
-
-.logo{
-
-width:55px;
-
-height:55px;
-
-border-radius:18px;
-
-box-shadow:
-
-0 0 20px #9b3dff;
+width:10px;
 
 }
 
-.logo-zone h1{
+::-webkit-scrollbar-track{
 
-font-size:22px;
-
-font-weight:800;
-
-color:white;
+background:#101010;
 
 }
 
-.premium{
+::-webkit-scrollbar-thumb{
 
-font-size:13px;
+background:var(--gold);
 
-color:#c69cff;
-
-}
-
-/* ========= MENU ========= */
-
-#menuBtn{
-
-width:50px;
-
-height:50px;
-
-border:none;
-
-border-radius:15px;
-
-background:#8d2fff;
-
-color:white;
-
-font-size:26px;
-
-cursor:pointer;
-
-box-shadow:
-
-0 0 20px #8d2fff;
-
-transition:.3s;
+border-radius:20px;
 
 }
 
-#menuBtn:hover{
+::-webkit-scrollbar-thumb:hover{
 
-transform:scale(1.08);
-
-}
-
-#sideMenu{
-
-position:fixed;
-
-top:75px;
-
-right:-280px;
-
-width:260px;
-
-height:100%;
-
-background:#111;
-
-display:flex;
-
-flex-direction:column;
-
-padding-top:25px;
-
-transition:.35s;
-
-border-left:2px solid #8d2fff;
-
-z-index:998;
+background:#ffcb20;
 
 }
 
-#sideMenu a{
+/* ===========================
+LIENS
+=========================== */
 
-padding:18px 25px;
+a{
 
 text-decoration:none;
 
-color:white;
-
-font-size:18px;
-
-transition:.25s;
+color:inherit;
 
 }
 
-#sideMenu a:hover{
+img{
 
-background:#8d2fff;
+max-width:100%;
 
-}
-
-#sideMenu.open{
-
-right:0;
+display:block;
 
 }
-/* ===================================
+
+section{
+
+padding:90px 8%;
+
+}
+/* ==========================================================
    HERO
-=================================== */
+========================================================== */
 
 .hero{
 
-padding-top:130px;
+min-height:100vh;
 
-padding-left:25px;
+display:flex;
 
-padding-right:25px;
+align-items:center;
 
-padding-bottom:70px;
+justify-content:center;
 
 text-align:center;
+
+padding-top:120px;
+
+}
+
+.hero-content{
+
+max-width:800px;
+
+animation:fadeUp 1s ease;
 
 }
 
@@ -233,47 +161,26 @@ text-align:center;
 
 width:180px;
 
-border-radius:30px;
+margin:0 auto 30px;
+
+border-radius:50%;
+
+border:5px solid var(--gold);
 
 box-shadow:
+0 0 50px rgba(255,213,74,.45);
 
-0 0 35px #8d2fff,
-
-0 0 70px rgba(141,47,255,.45);
-
-animation:float 3s ease-in-out infinite;
-
-}
-
-@keyframes float{
-
-0%{
-
-transform:translateY(0px);
-
-}
-
-50%{
-
-transform:translateY(-10px);
-
-}
-
-100%{
-
-transform:translateY(0px);
-
-}
+animation:floatLogo 4s ease-in-out infinite;
 
 }
 
 .hero h2{
 
-margin-top:30px;
+font-size:3rem;
 
-font-size:42px;
+font-weight:700;
 
-font-weight:800;
+margin-bottom:20px;
 
 line-height:1.2;
 
@@ -281,403 +188,78 @@ line-height:1.2;
 
 .hero h2 span{
 
-color:#b96dff;
-
-text-shadow:
-
-0 0 20px #8d2fff;
+color:var(--gold);
 
 }
 
 .hero p{
 
-margin-top:20px;
+font-size:1.15rem;
 
-font-size:18px;
+color:var(--grey);
 
-color:#cfcfcf;
+max-width:650px;
 
-line-height:30px;
+margin:0 auto 35px;
 
-max-width:420px;
-
-margin-left:auto;
-
-margin-right:auto;
+line-height:1.8;
 
 }
 
-/* ========= BOUTON ========= */
+/* ==========================================================
+   BOUTONS
+========================================================== */
 
-#enterButton{
+button,
+.shopBtn,
+.whatsapp,
+.telegram{
 
-margin-top:35px;
+display:inline-flex;
 
-width:100%;
+align-items:center;
 
-max-width:340px;
+justify-content:center;
 
-padding:18px;
+gap:10px;
+
+padding:15px 30px;
 
 border:none;
 
-border-radius:60px;
+border-radius:14px;
 
-background:linear-gradient(135deg,#7b2cff,#b84dff);
+font-size:1rem;
 
-color:white;
-
-font-size:20px;
-
-font-weight:700;
+font-weight:600;
 
 cursor:pointer;
 
-box-shadow:
-
-0 0 25px #8d2fff;
-
-transition:.3s;
-
-}
-
-#enterButton:hover{
-
-transform:translateY(-3px);
-
-box-shadow:
-
-0 0 40px #8d2fff;
-
-}
-
-/* ========= COMPTEUR ========= */
-
-.countdown{
-
-margin:20px;
-
-padding:30px;
-
-border-radius:25px;
-
-background:rgba(255,255,255,.05);
-
-backdrop-filter:blur(10px);
-
-border:1px solid rgba(141,47,255,.35);
-
-text-align:center;
-
-}
-
-.countdown h3{
-
-font-size:28px;
-
-margin-bottom:10px;
-
-}
-
-.countdown p{
-
-color:#cfcfcf;
-
-margin-bottom:20px;
-
-}
-
-#timer{
-
-font-size:38px;
-
-font-weight:800;
-
-color:#d79cff;
-
-text-shadow:
-
-0 0 20px #8d2fff;
-
-}
-/* ===================================
-   CATÉGORIES
-=================================== */
-
-.categories{
-
-padding:70px 20px;
-
-}
-
-.categories h2{
-
-text-align:center;
-
-font-size:34px;
-
-margin-bottom:40px;
-
-font-weight:800;
-
-color:#ffffff;
-
-text-shadow:0 0 15px #8d2fff;
-
-}
-
-.cards{
-
-display:grid;
-
-grid-template-columns:1fr;
-
-gap:25px;
-
-}
-
-/* ===================================
-   CARTES PRODUITS
-=================================== */
-
-.card{
-
-background:rgba(255,255,255,.06);
-
-backdrop-filter:blur(14px);
-
-border:1px solid rgba(141,47,255,.25);
-
-border-radius:28px;
-
-padding:20px;
-
 transition:.35s;
-
-box-shadow:
-
-0 0 20px rgba(141,47,255,.15);
-
-}
-
-.card:hover{
-
-transform:translateY(-8px);
-
-box-shadow:
-
-0 0 40px rgba(141,47,255,.45);
-
-}
-
-.card img{
-
-width:100%;
-
-height:220px;
-
-object-fit:cover;
-
-border-radius:18px;
-
-margin-bottom:20px;
-
-}
-
-.card h3{
-
-font-size:28px;
-
-margin-bottom:15px;
-
-}
-
-.card p{
-
-line-height:28px;
-
-color:#d8d8d8;
-
-margin-bottom:18px;
-
-}
-
-.price{
-
-display:block;
-
-font-size:26px;
-
-font-weight:800;
-
-color:#c888ff;
-
-margin-bottom:20px;
 
 }
 
 .shopBtn{
 
-width:100%;
+background:linear-gradient(
+135deg,
+var(--gold),
+var(--gold2)
+);
 
-padding:18px;
+color:#111;
 
-border:none;
-
-border-radius:50px;
-
-background:linear-gradient(135deg,#7b2cff,#b84dff);
-
-color:white;
-
-font-size:18px;
-
-font-weight:bold;
-
-cursor:pointer;
-
-transition:.3s;
+box-shadow:
+0 12px 25px rgba(255,213,74,.30);
 
 }
 
 .shopBtn:hover{
 
-transform:scale(1.03);
+transform:translateY(-4px);
 
 box-shadow:
-
-0 0 25px #8d2fff;
-
-}
-/* ===================================
-   À PROPOS
-=================================== */
-
-.about{
-
-padding:70px 20px;
-
-}
-
-.about h2{
-
-text-align:center;
-
-font-size:32px;
-
-margin-bottom:40px;
-
-font-weight:800;
-
-}
-
-.about-grid{
-
-display:grid;
-
-grid-template-columns:1fr;
-
-gap:20px;
-
-}
-
-.about-card{
-
-background:rgba(255,255,255,.05);
-
-border:1px solid rgba(141,47,255,.25);
-
-backdrop-filter:blur(12px);
-
-border-radius:25px;
-
-padding:25px;
-
-text-align:center;
-
-transition:.3s;
-
-}
-
-.about-card:hover{
-
-transform:translateY(-6px);
-
-box-shadow:0 0 25px rgba(141,47,255,.35);
-
-}
-
-.about-card h3{
-
-font-size:24px;
-
-margin-bottom:15px;
-
-color:#d79cff;
-
-}
-
-.about-card p{
-
-line-height:28px;
-
-color:#d8d8d8;
-
-}
-
-/* ===================================
-   CONTACT
-=================================== */
-
-.contact{
-
-padding:70px 20px;
-
-text-align:center;
-
-}
-
-.contact h2{
-
-font-size:34px;
-
-margin-bottom:15px;
-
-}
-
-.contact p{
-
-color:#d0d0d0;
-
-margin-bottom:35px;
-
-}
-
-.contact-buttons{
-
-display:flex;
-
-flex-direction:column;
-
-gap:18px;
-
-}
-
-.contact-buttons a{
-
-text-decoration:none;
-
-padding:18px;
-
-border-radius:50px;
-
-font-size:18px;
-
-font-weight:700;
-
-transition:.3s;
-
-color:white;
+0 20px 40px rgba(255,213,74,.45);
 
 }
 
@@ -685,426 +267,121 @@ color:white;
 
 background:#25D366;
 
+color:white;
+
+}
+
+.whatsapp:hover{
+
+transform:translateY(-4px);
+
 }
 
 .telegram{
 
-background:#229ED9;
+background:#27A5E7;
+
+color:white;
 
 }
 
-.contact-buttons a:hover{
+.telegram:hover{
 
 transform:translateY(-4px);
 
-box-shadow:0 0 20px rgba(255,255,255,.25);
-
-}
-/* ===================================
-   FOOTER
-=================================== */
-
-footer{
-
-padding:60px 20px 40px;
-
-margin-top:60px;
-
-background:#080808;
-
-border-top:1px solid rgba(141,47,255,.25);
-
 }
 
-.footer-content{
+/* ==========================================================
+   COMPTE À REBOURS
+========================================================== */
 
-max-width:1200px;
-
-margin:auto;
+.countdown{
 
 text-align:center;
 
-}
+background:rgba(255,255,255,.04);
 
-.footer-logo{
-
-width:90px;
-
-height:90px;
-
-border-radius:22px;
-
-margin-bottom:20px;
-
-box-shadow:
-
-0 0 25px #8d2fff;
-
-}
-
-.footer-content h2{
-
-font-size:30px;
-
-margin-bottom:10px;
-
-}
-
-.footer-content p{
-
-color:#bfbfbf;
-
-margin-bottom:25px;
-
-}
-
-.footer-links{
-
-display:flex;
-
-justify-content:center;
-
-flex-wrap:wrap;
-
-gap:15px;
-
-margin-bottom:30px;
-
-}
-
-.footer-links a{
-
-text-decoration:none;
-
-color:white;
-
-padding:10px 18px;
+backdrop-filter:blur(12px);
 
 border-radius:25px;
 
-transition:.3s;
+margin:40px auto;
+
+max-width:850px;
+
+box-shadow:var(--shadow);
 
 }
 
-.footer-links a:hover{
+.countdown h3{
 
-background:#8d2fff;
+font-size:2rem;
 
-}
+margin-bottom:15px;
 
-.copyright{
-
-font-size:14px;
-
-color:#888;
+color:var(--gold);
 
 }
 
-/* ===================================
-   FENÊTRE D'ACCÈS
-=================================== */
-
-.access-modal{
-
-position:fixed;
-
-top:0;
-
-left:0;
-
-width:100%;
-
-height:100%;
-
-background:rgba(0,0,0,.85);
-
-display:none;
-
-justify-content:center;
-
-align-items:center;
-
-padding:20px;
-
-z-index:3000;
-
-}
-
-.access-box{
-
-width:100%;
-
-max-width:420px;
-
-background:#111;
-
-border:1px solid rgba(141,47,255,.35);
-
-border-radius:30px;
-
-padding:35px;
-
-text-align:center;
-
-box-shadow:0 0 40px rgba(141,47,255,.35);
-
-}
-
-.access-logo{
-
-width:120px;
-
-border-radius:25px;
-
-margin-bottom:25px;
-
-}
-
-.access-box input{
-
-width:100%;
-
-padding:18px;
-
-margin:20px 0;
-
-background:#1b1b1b;
-
-border:1px solid #8d2fff;
-
-border-radius:15px;
-
-color:white;
-
-font-size:18px;
-
-outline:none;
-
-}
-
-#accessButton{
-
-width:100%;
-
-padding:18px;
-
-border:none;
-
-border-radius:50px;
-
-background:linear-gradient(135deg,#7b2cff,#b84dff);
-
-color:white;
-
-font-size:18px;
-
-font-weight:bold;
-
-cursor:pointer;
-
-transition:.3s;
-
-}
-
-#accessButton:hover{
-
-transform:scale(1.03);
-
-}
-
-#errorMessage{
-
-margin-top:15px;
-
-color:#ff6464;
-
-font-weight:bold;
-
-}
-
-/* ===================================
-   RESPONSIVE
-=================================== */
-
-@media(min-width:768px){
-
-.cards{
-
-grid-template-columns:repeat(2,1fr);
-
-}
-
-.about-grid{
-
-grid-template-columns:repeat(3,1fr);
-
-}
-
-}
-
-@media(min-width:1100px){
-
-.cards{
-
-grid-template-columns:repeat(4,1fr);
-
-}
-
-.hero h2{
-
-font-size:58px;
-
-}
-
-.hero-logo{
-
-width:240px;
-
-}
-
-}
-/* ===========================
-   V3 PREMIUM - CARTES
-=========================== */
-
-.section-subtitle{
-
-text-align:center;
-
-color:#bdbdbd;
-
-font-size:17px;
-
-margin-top:10px;
-
-margin-bottom:40px;
-
-}
-
-.card{
-
-position:relative;
-
-overflow:hidden;
-
-background:rgba(255,255,255,.05);
-
-border:1px solid rgba(155,61,255,.25);
-
-backdrop-filter:blur(14px);
-
-border-radius:30px;
-
-padding:20px;
-
-transition:.35s;
-
-}
-
-.card:hover{
-
-transform:translateY(-10px);
-
-box-shadow:
-
-0 0 35px rgba(141,47,255,.45);
-
-}
-
-.card img{
-
-width:100%;
-
-height:230px;
-
-object-fit:cover;
-
-border-radius:20px;
-
-margin-bottom:20px;
-
-}
-
-.badge{
-
-position:absolute;
-
-top:20px;
-
-left:20px;
-
-background:#8d2fff;
-
-padding:8px 15px;
-
-border-radius:20px;
-
-font-size:12px;
-
-font-weight:bold;
-
-box-shadow:0 0 15px #8d2fff;
-
-}
-
-.actions{
-
-display:flex;
-
-gap:12px;
+#timer{
 
 margin-top:20px;
 
-}
+font-size:2rem;
 
-.shopBtn,
-.videoBtn{
+font-weight:700;
 
-flex:1;
+letter-spacing:2px;
 
-padding:15px;
-
-border:none;
-
-border-radius:50px;
-
-font-size:16px;
-
-font-weight:bold;
-
-cursor:pointer;
-
-transition:.3s;
+color:var(--gold);
 
 }
 
-.shopBtn{
+/* ==========================================================
+   ANIMATIONS
+========================================================== */
 
-background:linear-gradient(135deg,#7b2cff,#b84dff);
+@keyframes fadeUp{
 
-color:white;
+from{
 
-}
+opacity:0;
 
-.videoBtn{
-
-background:#1f1f1f;
-
-color:white;
-
-border:1px solid #8d2fff;
+transform:translateY(50px);
 
 }
 
-.shopBtn:hover,
-.videoBtn:hover{
+to{
 
-transform:scale(1.04);
+opacity:1;
+
+transform:translateY(0);
 
 }
-/* ===========================
-   ANIMATIONS AU SCROLL
-=========================== */
+
+}
+
+@keyframes floatLogo{
+
+0%{
+
+transform:translateY(0);
+
+}
+
+50%{
+
+transform:translateY(-12px);
+
+}
+
+100%{
+
+transform:translateY(0);
+
+}
+
+}
 
 .fade{
 
@@ -1112,7 +389,7 @@ opacity:0;
 
 transform:translateY(40px);
 
-transition:.8s ease;
+transition:1s;
 
 }
 
@@ -1123,194 +400,241 @@ opacity:1;
 transform:translateY(0);
 
 }
-/* ===========================
-   ÉCRAN DE CHARGEMENT
-=========================== */
+/* ==========================================================
+   CARTES PRODUITS
+========================================================== */
 
-#loader{
+.cards{
 
-position:fixed;
+display:grid;
 
-top:0;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
 
-left:0;
+gap:30px;
 
-width:100%;
-
-height:100%;
-
-background:#050505;
-
-display:flex;
-
-flex-direction:column;
-
-justify-content:center;
-
-align-items:center;
-
-z-index:99999;
-
-transition:opacity .6s ease;
+margin-top:50px;
 
 }
 
-.loader-logo{
+.card{
 
-width:140px;
+position:relative;
 
-height:140px;
+background:rgba(255,255,255,.05);
 
-border-radius:28px;
+backdrop-filter:blur(15px);
 
-animation:loaderFloat 2s ease-in-out infinite;
+border:1px solid rgba(255,255,255,.08);
 
-box-shadow:0 0 35px #8d2fff;
+border-radius:22px;
 
-}
-
-@keyframes loaderFloat{
-
-0%{transform:translateY(0);}
-
-50%{transform:translateY(-12px);}
-
-100%{transform:translateY(0);}
-
-}
-
-#loader h2{
-
-margin-top:25px;
-
-font-size:34px;
-
-}
-
-#loader p{
-
-margin:15px 0;
-
-color:#c8c8c8;
-
-}
-
-.loader-bar{
-
-width:260px;
-
-height:8px;
-
-background:#222;
-
-border-radius:50px;
+padding:25px;
 
 overflow:hidden;
 
-}
+transition:.35s;
 
-.loader-progress{
-
-height:100%;
-
-width:0;
-
-background:linear-gradient(90deg,#7b2cff,#d18fff);
-
-animation:loading 2.2s forwards;
+box-shadow:var(--shadow);
 
 }
 
-@keyframes loading{
+.card:hover{
 
-from{width:0;}
+transform:translateY(-10px);
 
-to{width:100%;}
+border-color:var(--gold);
+
+box-shadow:
+0 25px 50px rgba(255,213,74,.20);
+
+}
+
+.card h3{
+
+font-size:1.5rem;
+
+margin-bottom:15px;
+
+color:var(--gold);
 
 }
 
-.loader-hidden{
+.card p{
 
-opacity:0;
+line-height:1.8;
 
-pointer-events:none;
+color:var(--grey);
+
+margin-bottom:18px;
 
 }
-/* ===========================
-   FICHE PRODUIT
-=========================== */
 
-.product-modal{
+/* ==========================================================
+   BADGES
+========================================================== */
 
-display:none;
+.badge{
+
+position:absolute;
+
+top:15px;
+
+right:15px;
+
+background:linear-gradient(
+135deg,
+var(--gold),
+var(--gold2)
+);
+
+color:#111;
+
+font-size:.75rem;
+
+font-weight:700;
+
+padding:8px 14px;
+
+border-radius:50px;
+
+box-shadow:
+0 5px 15px rgba(255,213,74,.35);
+
+}
+
+/* ==========================================================
+   LISTE DES PRIX
+========================================================== */
+
+.price-list{
+
+margin:20px 0;
+
+padding:15px;
+
+border-radius:15px;
+
+background:rgba(255,255,255,.04);
+
+}
+
+.price-list p{
+
+display:flex;
+
+justify-content:space-between;
+
+margin:8px 0;
+
+font-size:1rem;
+
+}
+
+.stock{
+
+display:inline-block;
+
+margin:15px 0;
+
+padding:10px 18px;
+
+border-radius:50px;
+
+background:#1d8b3a;
+
+font-weight:700;
+
+}
+
+/* ==========================================================
+   VIDÉOS
+========================================================== */
+
+.product-video,
+video{
+
+width:100%;
+
+border-radius:18px;
+
+margin:20px 0;
+
+background:#000;
+
+box-shadow:
+0 15px 35px rgba(0,0,0,.35);
+
+}
+
+/* ==========================================================
+   IMAGES
+========================================================== */
+
+.product-image{
+
+width:100%;
+
+border-radius:18px;
+
+margin:20px 0;
+
+transition:.4s;
+
+}
+
+.product-image:hover{
+
+transform:scale(1.03);
+
+}
+
+/* ==========================================================
+   MODALES
+========================================================== */
+
+.product-modal,
+.video-modal{
 
 position:fixed;
 
-top:0;
+inset:0;
 
-left:0;
-
-width:100%;
-
-height:100%;
-
-background:rgba(0,0,0,.92);
-
-justify-content:center;
+display:none;
 
 align-items:center;
 
-padding:20px;
+justify-content:center;
 
-z-index:9000;
+background:rgba(0,0,0,.85);
+
+padding:25px;
+
+z-index:5000;
 
 }
 
-.product-box{
+.product-box,
+.video-box{
 
-background:#111;
+width:min(850px,95%);
 
-width:100%;
+background:#171717;
 
-max-width:430px;
-
-border-radius:30px;
+border-radius:25px;
 
 padding:25px;
 
 position:relative;
 
-border:1px solid rgba(141,47,255,.30);
+box-shadow:
+0 30px 60px rgba(0,0,0,.55);
 
-box-shadow:0 0 40px rgba(141,47,255,.35);
-
-}
-
-.product-box img{
-
-width:100%;
-
-height:220px;
-
-object-fit:cover;
-
-border-radius:20px;
-
-margin-bottom:20px;
+animation:fadeUp .4s ease;
 
 }
 
-.product-box video{
-
-width:100%;
-
-border-radius:20px;
-
-margin-top:20px;
-
-}
-
-#closeProduct{
+#closeProduct,
+#closeVideo{
 
 position:absolute;
 
@@ -1322,11 +646,11 @@ width:42px;
 
 height:42px;
 
-border:none;
-
 border-radius:50%;
 
-background:#8d2fff;
+border:none;
+
+background:#222;
 
 color:white;
 
@@ -1334,28 +658,898 @@ font-size:20px;
 
 cursor:pointer;
 
+transition:.3s;
+
 }
 
-#infoBtn{
+#closeProduct:hover,
+#closeVideo:hover{
+
+background:#d62c2c;
+
+transform:rotate(90deg);
+
+}
+
+/* ==========================================================
+   RESPONSIVE
+========================================================== */
+
+@media(max-width:768px){
+
+.hero h2{
+
+font-size:2.2rem;
+
+}
+
+.hero-logo{
+
+width:140px;
+
+}
+
+.cards{
+
+grid-template-columns:1fr;
+
+}
+
+.topbar{
+
+padding:15px 20px;
+
+}
+
+section{
+
+padding:70px 20px;
+
+}
+
+}
+/* ==========================================================
+   CONTACT
+========================================================== */
+
+.contact{
+
+text-align:center;
+
+}
+
+.contact h2{
+
+font-size:2.3rem;
+
+margin-bottom:15px;
+
+color:var(--gold);
+
+}
+
+.contact p{
+
+color:var(--grey);
+
+margin-bottom:35px;
+
+font-size:1.05rem;
+
+}
+
+.contact-buttons{
+
+display:flex;
+
+justify-content:center;
+
+gap:20px;
+
+flex-wrap:wrap;
+
+}
+
+/* ==========================================================
+   FOOTER
+========================================================== */
+
+footer{
+
+margin-top:100px;
+
+padding:60px 20px;
+
+text-align:center;
+
+background:linear-gradient(
+
+180deg,
+
+transparent,
+
+rgba(255,255,255,.04)
+
+);
+
+border-top:1px solid rgba(255,255,255,.08);
+
+}
+
+.footer-logo{
+
+width:90px;
+
+margin:auto;
+
+border-radius:50%;
+
+border:3px solid var(--gold);
+
+margin-bottom:20px;
+
+box-shadow:0 0 30px rgba(255,213,74,.35);
+
+}
+
+.footer-content h2{
+
+font-size:2rem;
+
+color:var(--gold);
+
+margin-bottom:10px;
+
+}
+
+.footer-content p{
+
+color:var(--grey);
+
+}
+
+.footer-links{
+
+display:flex;
+
+justify-content:center;
+
+gap:25px;
+
+margin:35px 0;
+
+flex-wrap:wrap;
+
+}
+
+.footer-links a{
+
+transition:.3s;
+
+}
+
+.footer-links a:hover{
+
+color:var(--gold);
+
+}
+
+.copyright{
 
 margin-top:25px;
 
+font-size:.9rem;
+
+opacity:.7;
+
+}
+
+/* ==========================================================
+   LOADER
+========================================================== */
+
+#loader{
+
+position:fixed;
+
+inset:0;
+
+background:#0f1115;
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:center;
+
+align-items:center;
+
+z-index:99999;
+
+transition:.8s;
+
+}
+
+.loader-hidden{
+
+opacity:0;
+
+visibility:hidden;
+
+}
+
+.loader-logo{
+
+width:150px;
+
+border-radius:50%;
+
+border:4px solid var(--gold);
+
+animation:loaderSpin 2s linear infinite;
+
+margin-bottom:25px;
+
+}
+
+.loader-bar{
+
+width:260px;
+
+height:8px;
+
+background:#252525;
+
+border-radius:20px;
+
+overflow:hidden;
+
+margin-top:25px;
+
+}
+
+.loader-progress{
+
+height:100%;
+
 width:100%;
 
-padding:18px;
+background:linear-gradient(
+
+90deg,
+
+var(--gold),
+
+#fff3b0,
+
+var(--gold)
+
+);
+
+animation:loading 2s linear infinite;
+
+}
+
+@keyframes loading{
+
+0%{
+
+transform:translateX(-100%);
+
+}
+
+100%{
+
+transform:translateX(100%);
+
+}
+
+}
+
+@keyframes loaderSpin{
+
+0%{
+
+transform:rotate(0deg);
+
+}
+
+100%{
+
+transform:rotate(360deg);
+
+}
+
+}
+
+/* ==========================================================
+   RETOUR EN HAUT
+========================================================== */
+
+#backToTop{
+
+position:fixed;
+
+bottom:25px;
+
+right:25px;
+
+width:55px;
+
+height:55px;
+
+border-radius:50%;
 
 border:none;
 
-border-radius:50px;
-
-background:linear-gradient(135deg,#7b2cff,#b84dff);
-
-color:white;
-
-font-size:18px;
-
-font-weight:bold;
-
 cursor:pointer;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+font-size:22px;
+
+background:linear-gradient(
+
+135deg,
+
+var(--gold),
+
+var(--gold2)
+
+);
+
+color:#111;
+
+box-shadow:0 10px 30px rgba(255,213,74,.45);
+
+opacity:0;
+
+visibility:hidden;
+
+transition:.3s;
+
+z-index:500;
+
+}
+
+#backToTop.show{
+
+opacity:1;
+
+visibility:visible;
+
+transform:translateY(0);
+
+}
+
+#backToTop:hover{
+
+transform:scale(1.1);
+
+}
+
+/* ==========================================================
+   SÉLECTION DU TEXTE
+========================================================== */
+
+::selection{
+
+background:var(--gold);
+
+color:#111;
+
+}
+/* ==========================================================
+   EFFETS PREMIUM
+========================================================== */
+
+.card::before{
+
+content:"";
+
+position:absolute;
+
+top:-50%;
+
+left:-50%;
+
+width:200%;
+
+height:200%;
+
+background:linear-gradient(
+
+45deg,
+
+transparent,
+
+rgba(255,213,74,.12),
+
+transparent
+
+);
+
+transform:rotate(25deg);
+
+opacity:0;
+
+transition:.5s;
+
+pointer-events:none;
+
+}
+
+.card:hover::before{
+
+opacity:1;
+
+animation:shine 1s linear;
+
+}
+
+@keyframes shine{
+
+0%{
+
+transform:translateX(-100%) rotate(25deg);
+
+}
+
+100%{
+
+transform:translateX(100%) rotate(25deg);
+
+}
+
+}
+
+/* ==========================================================
+   BARRE DE PROGRESSION
+========================================================== */
+
+#progressBar{
+
+position:fixed;
+
+top:0;
+
+left:0;
+
+width:0%;
+
+height:4px;
+
+background:linear-gradient(
+
+90deg,
+
+var(--gold),
+
+#fff,
+
+var(--gold)
+
+);
+
+z-index:9999;
+
+box-shadow:0 0 20px rgba(255,213,74,.6);
+
+}
+
+/* ==========================================================
+   TITRES
+========================================================== */
+
+section h2{
+
+font-size:2.4rem;
+
+text-align:center;
+
+margin-bottom:40px;
+
+color:var(--gold);
+
+font-weight:700;
+
+}
+
+section h2::after{
+
+content:"";
+
+display:block;
+
+width:90px;
+
+height:4px;
+
+margin:15px auto 0;
+
+background:var(--gold);
+
+border-radius:20px;
+
+}
+
+/* ==========================================================
+   BOUTONS
+========================================================== */
+
+button{
+
+transition:.3s ease;
+
+}
+
+button:active{
+
+transform:scale(.96);
+
+}
+
+/* ==========================================================
+   VIDÉOS
+========================================================== */
+
+video{
+
+outline:none;
+
+border:2px solid rgba(255,213,74,.20);
+
+}
+
+video:hover{
+
+border-color:var(--gold);
+
+}
+
+/* ==========================================================
+   CARTES
+========================================================== */
+
+.card{
+
+transition:
+transform .35s,
+box-shadow .35s,
+border-color .35s;
+
+}
+
+.card:hover{
+
+transform:translateY(-8px);
+
+}
+
+/* ==========================================================
+   RESPONSIVE TABLETTE
+========================================================== */
+
+@media (max-width:1024px){
+
+.hero{
+
+padding-top:140px;
+
+}
+
+.cards{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+}
+
+/* ==========================================================
+   RESPONSIVE MOBILE
+========================================================== */
+
+@media (max-width:768px){
+
+.hero{
+
+padding-top:120px;
+
+}
+
+.hero h2{
+
+font-size:2rem;
+
+}
+
+.hero p{
+
+font-size:1rem;
+
+}
+
+.cards{
+
+grid-template-columns:1fr;
+
+gap:20px;
+
+}
+
+.contact-buttons{
+
+flex-direction:column;
+
+}
+
+.logo{
+
+width:55px;
+
+height:55px;
+
+}
+
+.loader-logo{
+
+width:110px;
+
+}
+
+}
+
+/* ==========================================================
+   PETITS ÉCRANS
+========================================================== */
+
+@media (max-width:480px){
+
+section{
+
+padding:60px 18px;
+
+}
+
+.hero-logo{
+
+width:120px;
+
+}
+
+.card{
+
+padding:18px;
+
+}
+
+.shopBtn,
+.whatsapp,
+.telegram{
+
+width:100%;
+
+}
+
+}
+/* ==========================================================
+   STYLE.CSS 2.0
+   PARTIE 6 - FINITIONS
+========================================================== */
+
+/* Ombre douce sur les sections */
+
+section{
+
+position:relative;
+
+}
+
+section::after{
+
+content:"";
+
+position:absolute;
+
+left:50%;
+
+bottom:0;
+
+transform:translateX(-50%);
+
+width:85%;
+
+height:1px;
+
+background:linear-gradient(
+
+90deg,
+
+transparent,
+
+rgba(255,213,74,.20),
+
+transparent
+
+);
+
+}
+
+/* Apparition fluide */
+
+.show{
+
+animation:fadeSection .8s ease forwards;
+
+}
+
+@keyframes fadeSection{
+
+0%{
+
+opacity:0;
+
+transform:translateY(40px);
+
+}
+
+100%{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+/* Icônes */
+
+.card h3{
+
+display:flex;
+
+align-items:center;
+
+gap:10px;
+
+}
+
+/* Hover des liens */
+
+a{
+
+transition:.3s;
+
+}
+
+a:hover{
+
+opacity:.85;
+
+}
+
+/* Boutons */
+
+button:focus{
+
+outline:none;
+
+box-shadow:0 0 15px rgba(255,213,74,.5);
+
+}
+
+/* Effet sur le logo */
+
+.logo:hover,
+.hero-logo:hover,
+.footer-logo:hover{
+
+transform:scale(1.05);
+
+transition:.4s;
+
+}
+
+/* Animation légère des badges */
+
+.badge{
+
+animation:badgePulse 2.5s infinite;
+
+}
+
+@keyframes badgePulse{
+
+0%{
+
+transform:scale(1);
+
+}
+
+50%{
+
+transform:scale(1.08);
+
+}
+
+100%{
+
+transform:scale(1);
+
+}
+
+}
+
+/* Cartes plus fluides */
+
+.card{
+
+will-change:transform;
+
+}
+
+/* Vidéos */
+
+video{
+
+transition:.35s;
+
+}
+
+video:hover{
+
+transform:scale(1.01);
+
+}
+
+/* Footer */
+
+footer{
+
+padding-bottom:40px;
+
+}
+
+/* Optimisation mobile */
+
+@media(max-width:768px){
+
+.topbar{
+
+padding:15px;
+
+}
+
+.hero{
+
+padding-top:130px;
+
+}
+
+.logo-zone h1{
+
+font-size:1.2rem;
+
+}
+
+.premium{
+
+font-size:.8rem;
+
+}
+
+}
+
+/* Fin */
+
+html{
+
+scroll-padding-top:100px;
 
 }
