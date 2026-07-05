@@ -430,4 +430,33 @@ document.addEventListener("DOMContentLoaded", () => {
     ========================================================== */
 
     console.log("🚀 Bienvenue sur MARO KUSH 31");
-    
+    const accessButton = document.getElementById("accessButton");
+const accessCode = document.getElementById("accessCode");
+const errorMessage = document.getElementById("errorMessage");
+const accessModal = document.getElementById("accessModal");
+
+accessButton.addEventListener("click", async () => {
+
+    const response = await fetch("/api/login", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            code: accessCode.value
+        })
+    });
+
+    const data = await response.json();
+
+    if (data.success) {
+
+        accessModal.style.display = "none";
+
+    } else {
+
+        errorMessage.textContent = "❌ Code incorrect";
+
+    }
+
+});
